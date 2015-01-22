@@ -6,8 +6,5 @@
       <class name="com.autotesting.prepod.prepod.framework.suits.LastFmSearchTest"/>
     </classes>
   </test> <!-- Test -->
-  <listeners>
-  <listener class-name="com.autotesting.prepod.prepod.framework.utils.TestngEventsListener"/>
-</listeners>
 </suite> <!-- Suite -->
 

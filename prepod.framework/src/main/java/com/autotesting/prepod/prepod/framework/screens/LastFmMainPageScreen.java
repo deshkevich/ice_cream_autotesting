@@ -20,7 +20,7 @@ public class LastFmMainPageScreen extends CommonPageScreen {
     //логируем наши шаги
     log.info(String.format("Get text from page header by xpath: %s", MAIN_PAGE_TEXT_XPATH));
     //получаем текст
-    String result = driver.getTextByXpath(MAIN_PAGE_TEXT_XPATH);
+    String result = driver.findElementByXPath(MAIN_PAGE_TEXT_XPATH).getText();
     //логируем результат
     log.info(String.format("Result text is: %s", result));
     return result;
@@ -28,13 +28,13 @@ public class LastFmMainPageScreen extends CommonPageScreen {
 
   private LastFmMainPageScreen enterTestInSearchInput(String searchText) {
     log.info(String.format("Input text in search input by xpath: %s", UPPER_MUSIC_SEARCH_INPUT_XPATH));
-    driver.enterTextByXpath(UPPER_MUSIC_SEARCH_INPUT_XPATH, searchText);
+    driver.findElementByXPath(UPPER_MUSIC_SEARCH_INPUT_XPATH).sendKeys(searchText);
     return this;
   }
 
   private LastFmMainPageScreen clickSearchButton() {
     log.info(String.format("Click on search button by xpath: %s", UPPER_SEARCH_BUTTON_XPATH));
-    driver.clickByXpath(UPPER_SEARCH_BUTTON_XPATH, 10);
+    driver.findElementByXPath(UPPER_SEARCH_BUTTON_XPATH).click();
     return this;
   }
 
