@@ -1,8 +1,18 @@
 package com.autotesting.prepod.prepod.framework.utils;
 
 import java.io.File;
+import java.net.URL;
 
+import com.sun.glass.ui.View;
+import com.thoughtworks.selenium.DefaultSelenium;
+import com.thoughtworks.selenium.Selenium;
+import org.openqa.selenium.Capabilities;
+import org.openqa.selenium.Platform;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
+import org.openqa.selenium.remote.*;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,9 +30,12 @@ public class WebDriverRunner {
 
   WebDriverRunner() {
     try {
-      service = new ChromeDriverService.Builder().usingChromeDriverExecutable(new File(PATH_TO_CHROMEDRIVER_WIN)).usingAnyFreePort().build();
-      service.start();
-      driver = new WebDriverWrapper(service);
+/*      service = new ChromeDriverService.Builder().usingChromeDriverExecutable(new File(PATH_TO_CHROMEDRIVER_WIN)).usingAnyFreePort().build();
+      service.start();*/
+
+        DesiredCapabilities capability = DesiredCapabilities.firefox();
+        capability.setCapability("platform", Platform.WINDOWS);
+        driver = new WebDriverWrapper(new URL("http://localhost:4444/wd/hub"), capability);
     } catch (Exception e) {
       log.error("Error while creating Web Driver", e);
     }

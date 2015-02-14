@@ -10,9 +10,9 @@
   <name>prepod.framework</name>
   <url>http://maven.apache.org</url>
 
-  <properties>
+<!--  <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
+  </properties>-->
 
   <dependencies>
   <dependency>

@@ -5,6 +5,7 @@ import com.autotesting.prepod.prepod.framework.screens.SearchResultsPageScreen;
 import com.autotesting.prepod.prepod.framework.utils.WebDriverRunner;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 
@@ -14,6 +15,12 @@ public class LastFmSearchTest {
   public static final String MAIN_PAGE_HEADER_TEXT = "Discover more music";
   public static final String ARTIST_SEARCH_REQUEST_TEXT = "Александр Солодуха";
   public static final String TRACK_SEARCH_REQUEST_TEXT = "Здравствуй чужая милая";
+
+    @DataProvider
+    public static Object[][] langs() {
+        return new Object[][]{{1, 2}, {2, 3}};
+    }
+
 
   @Test(description = "Verify that artist search result match with request")
   public void artistSearchTest() {
